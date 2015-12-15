@@ -27,4 +27,83 @@ We can create our own custom theme by making a new folder in the **themes/** dir
 $ mkdir themes/customTheme
 ```
 
-Now let's create the most basic theme possible.
+Now let's create the most basic theme possible. We are using the EJS template engine, so make three files in the **themes/customTheme/layout** folder. One is called **layout.ejs**:
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- Use <%= page.title %> for dynamic title -->
+	<title><%= config.title %></title>
+
+	<!-- Twitter bootstrap (via cdn) -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class='container'>
+		<%- body %>
+	</div>
+</body>
+</html>
+```
+
+So here we're grabbing twitter bootstrap and setting the page title. The blog will render in the body tag.
+
+The next file is **index.ejs** and it will be the home page:
+
+```
+<div class='row text-center'>
+	<h1><%= config.author %></h1>
+    <p><%= config.subtitle %></p>
+
+</div>
+<div class='row'>
+	<ul>
+	<% page.posts.each(function(post){ %>
+    	<li>
+    		<h3>
+                <a href="<%- url_for(post.path) %>">
+        			<%= post.title %>
+        		</a>
+            </h3>
+            <div class='text-muted'>
+                <%= date(post.date, config.date_format) %> 
+            </div>
+            
+            <% if(post.excerpt) { %>
+                <p>
+                    <%- post.excerpt %>
+                </p>
+            <% } %>
+    	</li>
+  	<% }) %>
+	</ul>
+</div>
+```
+
+The `config` variable comes from everything we set in **config.yml**. The `<%-` syntax comes directly from [EJS syntax](https://github.com/tj/ejs). To see a post.excerpt add `<!-- more -->` to line 5 (or anywhere) in **source/_posts/hello-world.md**. To create a new post do `$ hexo new "My Post Title"`.
+
+Finally there is the page where the post must render. Create **themes/customTheme/layout/post.ejs**:
+
+```
+<div class='row'>
+	<a class='btn btn-default' href='/'>< Home</a>
+</div>
+<div class='row'>
+	<h1><%- page.title %></h1>
+	<div class='text-muted'>
+        <%= date(page.date, config.date_format) %> 
+    </div>
+	<%- page.content %>
+</div>
+```
+
+Here we make use of the `page` variable, which contains our post.
+
+### Conclusion
+
+This is a very basic template. There is a lot to learn with Hexo but it is a very powerful, customizable platform. You can pick from an existing theme or continue to develop off this one. The source code for this article is on [github](https://github.com/cleechtech/hexo-personal-site).
+
+
