@@ -34,22 +34,6 @@
 		}
 	</style>
 	<style>
-		section {
-		    position: relative;
-		    padding: 10em 10%;
-		    background: #2980b9;
-		    color: #fff;
-		    text-align: center;
-		}
-		.color {
-		    background: #3498db;
-		}
-		.ss-style-doublediagonal {
-		    z-index: 1;
-		    padding-top: 6em;
-		    background: #2072a7;
-		}
-		/**/
 		*,
 *:after,
 *::before {
@@ -61,7 +45,7 @@
 /* General styles and layout */
 
 body {
-	background: #2980b9;
+	background: lightgrey;
 	color: #fff;
 	font-family: 'Lato', Arial, sans-serif;
 }
@@ -78,7 +62,7 @@ body {
 section {
 	position: relative;
 	padding: 10em 10%;
-	background: #2980b9;
+	background: lightgrey;
 	color: #fff;
 	text-align: center;
 }
@@ -166,7 +150,7 @@ section::after {
 
 .ss-style-triangles::before {
 	top: -50px;
-	background: #2980b9;
+	background: lightgrey;
 }
 
 .ss-style-triangles::after {
@@ -180,7 +164,7 @@ section::after {
 .ss-style-doublediagonal {
 	z-index: 1;
 	padding-top: 6em;
-	background: #2072a7;
+	background: lightgrey;
 }
 
 .ss-style-doublediagonal::before,
@@ -199,7 +183,7 @@ section::after {
 
 .ss-style-doublediagonal::before {
 	height: 50%;
-	background: #116094;
+	background: #ffff99; 
 	-webkit-transform: rotate(-3deg);
 	transform: rotate(-3deg);
 	-webkit-transform-origin: 3% 0;
@@ -342,8 +326,8 @@ svg#bigTriangleColor {
 	left: 0;
 	width: 100%;
 	height: 50px;
-	background-image: -webkit-gradient(linear, 100% 0, 0 100%, color-stop(0.5, #3498db), color-stop(0.5, #2980b9));
-	background-image: linear-gradient(to right, #3498db 50%, #2980b9 50%);
+	background-image: -webkit-gradient(linear, 100% 0, 0 100%, color-stop(0.5, #3498db), color-stop(0.5, lightgrey));
+	background-image: linear-gradient(to right, #3498db 50%, lightgrey 50%);
 	-webkit-background-size: 130px 100%;
 	background-size: 130px 100%;
 }
@@ -370,7 +354,7 @@ svg#bigTriangleColor {
 
 .ss-style-zigzag::after {
 	top: 100%;
-	background-image: -webkit-gradient(linear, 0 0, 300% 100%, color-stop(0.25, #3498db), color-stop(0.25, #2980b9));
+	background-image: -webkit-gradient(linear, 0 0, 300% 100%, color-stop(0.25, #3498db), color-stop(0.25, lightgrey));
 	background-image: 
 		linear-gradient(135deg, #3498db 25%, transparent 25%),
 		linear-gradient(225deg, #3498db 25%, transparent 25%);
@@ -387,7 +371,7 @@ svg#bigTriangleColor {
 	width: 200px;
 	height: 200px;
 	border-radius: 50%;
-	background: #2980b9;
+	background: lightgrey;
 	top: -100px;
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
@@ -413,7 +397,7 @@ svg#bigTriangleColor {
 	width: -moz-calc(50% + 10px);
 	width: calc(50% + 10px);
 	height: 160px;
-	background: #2980b9;
+	background: lightgrey;
 	top: -160px;
 }
 
@@ -460,14 +444,14 @@ svg#bigTriangleColor {
 
 .ss-style-inczigzag::before {
 	top: 0;
-	background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, #2980b9), color-stop(0.5, #3498db));
-	background-image: linear-gradient(15deg, #3498db 50%, #2980b9 50%);
+	background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, lightgrey), color-stop(0.5, #3498db));
+	background-image: linear-gradient(15deg, #3498db 50%, lightgrey 50%);
 }
 
 .ss-style-inczigzag::after {
 	bottom: 0;
-	background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, #3498db), color-stop(0.5, #2980b9));
-	background-image: linear-gradient(15deg, #2980b9 50%, #3498db 50%);
+	background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, #3498db), color-stop(0.5, lightgrey));
+	background-image: linear-gradient(15deg, lightgrey 50%, #3498db 50%);
 }
 
 /* Castle */
@@ -477,8 +461,8 @@ svg#bigTriangleColor {
 	height: 50px;
 	background-size: 200px 100%;
 	top: 0;
-	background-image: -webkit-linear-gradient(40deg, #3498db 50%, #2980b9 50%);
-	background-image: linear-gradient(40deg, #3498db 50%, #2980b9 50%);
+	background-image: -webkit-linear-gradient(40deg, #3498db 50%, lightgrey 50%);
+	background-image: linear-gradient(40deg, #3498db 50%, lightgrey 50%);
 }
 
 /* Alternative slit with inner shadow */
@@ -492,25 +476,6 @@ svg#bigTriangleColor {
 	fill: #2072a7;
 }
 
-/* Folded corner */
-.ss-style-foldedcorner::before,
-.ss-style-foldedcorner::after {
-	bottom: 0;
-	width: 100px;
-	height: 100px;
-}
-
-.ss-style-foldedcorner::before {
-	right: 0;
-	background-image: -webkit-linear-gradient(top left, #37a2ea 50%, #3498db 50%);
-	background-image: linear-gradient(315deg, #3498db 50%, #37a2ea 50%);
-}
-
-.ss-style-foldedcorner::after {
-	right: 100px;
-	background-image: -webkit-linear-gradient(top left, transparent 50%, #236fa1 50%);
-	background-image: linear-gradient(315deg, #236fa1 50%, transparent 50%);
-}
 
 /* Dots */
 .ss-style-dots::before {
@@ -610,7 +575,7 @@ svg#bigTriangleColor {
 
 </head>
 <body class='top-part'>
-	<div class='container'>
+	<div class=''>
 		<%- body %>
 	</div>
 </body>
