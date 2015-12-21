@@ -1,10 +1,15 @@
-<div class='row'>
-	<a class='btn btn-default' href='/'>< Home</a>
-</div>
-<div class='row'>
-	<h1><%- page.title %></h1>
-	<div class='text-muted'>
-        <%= date(page.date, config.date_format) %> 
-    </div>
-	<%- page.content %>
+<div class='container blog-post'>
+	<div class='row'>
+		<div class='col-sm-12'>
+			<a href='/' class="btn btn-yellow btn-circle" style='color:grey;'>
+            	<i class="fa fa-home fa-2"></i>
+        	</a>
+		</div>
+	</div>
+	<div class='row'>
+		<h1 class='author-name'><%- page.title %></h1>
+	    <%= date(page.date, config.date_format) %> 
+	    <hr />
+		<%- page.content %>
+	</div>
 </div>
