@@ -17,29 +17,22 @@
     </div>
 
 </div>
-<br>
-<br>
-<br>
-<br>
-<section class="col-3 ss-style-doublediagonal">
-    <ul class='blog-posts'>
+<section class="ss-style-doublediagonal">
     <% page.posts.each(function(post){ %>
-        <li>
-            <h3>
+        <div class='row blog-post'>
+            <h1>
                 <a href="<%- url_for(post.path) %>">
                     <%= post.title %>
                 </a>
-            </h3>
-            <div class='text-muted'>
-                <%= date(post.date, config.date_format) %> 
-            </div>
+            </h1>
+            <%= date(post.date, config.date_format) %> 
             
             <% if(post.excerpt) { %>
                 <p>
                     <%- post.excerpt %>
                 </p>
             <% } %>
-        </li>
+            <hr />
+        </div>
     <% }) %>
-    </ul>
 </section>

@@ -8,9 +8,12 @@
 	<!-- Twitter bootstrap (via cdn) -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
+	
 	<style>
-		body{ background: lightgrey;  height: 150%;}
+		body{ 
+			background: grey;
+			height: 100%;
+		}
 
 		.btn-circle {
 		  width: 70px;
@@ -27,139 +30,84 @@
 			background-color: steelblue;
 		}
 
+		.blog-post {
+			color: white;
+		}
+		.blog-post a {
+			color: yellow;
+		}
+		.blog-post.text-muted {
+			color: white;
+		}
+
+		/* Double Diagonal line */
+		section {
+			position: relative;
+			padding: 10em 10%;
+			background: lightgrey;
+			color: #fff;
+		}
+		.top-part {
+			background-color: lightgrey;
+			padding-bottom: 100px;
+		}
+		#wrapper { 
+		    position: absolute;
+		    width: 100%;
+		    overflow-x: hidden;
+		}
+
 		*,
-*:after,
-*::before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
+		*:after,
+		*::before {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.hideOverflow {
+			overflow: hidden;
+		}
 
-/* General styles and layout */
+		section::before,
+		section::after {
+			position: absolute;
+			content: '';
+			pointer-events: none;
+		}
 
-.container {
-	overflow: hidden;
-	/* we don't want the pseudo-elements sticking out */
-}
+		.ss-style-doublediagonal {
+			z-index: 1;
+			padding-top: 6em;
+			background: grey;
+		}
 
-.container svg {
-	display: block;
-}
+		.ss-style-doublediagonal::before,
+		.ss-style-doublediagonal::after {
+			top: 0;
+			left: -25%;
+			z-index: -1;
+			width: 150%;
+			height: 75%;
+			background: inherit;
+			-webkit-transform: rotate(-2deg);
+			transform: rotate(-2deg);
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+		}
 
-section {
-	position: relative;
-	padding: 10em 10%;
-	background: lightgrey;
-	color: #fff;
-	text-align: center;
-}
-
-.text:first-child {
-	text-align: right;
-}
-
-.text:nth-child(2) {
-	text-align: left;
-}
-
-.col-2 .column {
-	width: 49%;
-}
-
-.col-3 .column {
-	padding: 0 1%;
-	width: 33%;
-	text-align: center;
-}
-
-.col-3 .column p {
-	padding: 1.4em;
-}
-
-.column {
-	display: inline-block;
-	vertical-align: top;
-}
-
-/*** Individual section styles and separators ***/
-
-/* Common style for pseudo-elements */
-section::before,
-section::after {
-	position: absolute;
-	content: '';
-	pointer-events: none;
-}
-
-
-/* Double Diagonal line */
-
-.ss-style-doublediagonal {
-	z-index: 1;
-	padding-top: 6em;
-	background: grey;
-}
-
-.ss-style-doublediagonal::before,
-.ss-style-doublediagonal::after {
-	top: 0;
-	left: -25%;
-	z-index: -1;
-	width: 150%;
-	height: 75%;
-	background: inherit;
-	-webkit-transform: rotate(-2deg);
-	transform: rotate(-2deg);
-	-webkit-transform-origin: 0 0;
-	transform-origin: 0 0;
-}
-
-.ss-style-doublediagonal::before {
-	height: 50%;
-	background: yellow;
-	-webkit-transform: rotate(-3deg);
-	transform: rotate(-3deg);
-	-webkit-transform-origin: 3% 0;
-	transform-origin: 3% 0;
-}
-
-
-/* Media Queries for the layout */
-@media screen and (max-width: 68em) {
-	section {
-		font-size: 80%;
-	}
-}
-
-@media screen and (max-width: 54em) {
-	.column {
-		display: block;
-		width: 100% !important;
-	}
-
-	.text:first-child,
-	.text:nth-child(2) {
-		text-align: center;
-	}
-
-	.icon {
-		margin: 0 auto;
-	}
-
-	.col-2 .column:first-child .icon {
-		margin: 0 auto 50px;
-	}
-
-	.col-2 .column:nth-child(2) .icon {
-		margin: 50px auto 0;
-	}
-}
-
-	</style>
+		.ss-style-doublediagonal::before {
+			height: 50%;
+			background: yellow;
+			-webkit-transform: rotate(-3deg);
+			transform: rotate(-3deg);
+			-webkit-transform-origin: 3% 0;
+			transform-origin: 3% 0;
+		}
+</style>
 
 </head>
-<body class='top-part'>
-	<div>
+<body id='wrapper'>
+	<div class='hideOverflow'>
 		<%- body %>
 	</div>
 </body>
